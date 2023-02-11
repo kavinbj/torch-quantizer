@@ -1,7 +1,7 @@
 <!--
  * @Author: kavinbj
  * @Date: 2022-11-24 13:25:32
- * @LastEditTime: 2023-02-11 12:47:58
+ * @LastEditTime: 2023-02-11 12:48:59
  * @FilePath: README.md
  * @Description: 
  * 
@@ -33,45 +33,45 @@ PyTorch 支持多种量化深度学习模型的方法。在大多数情况下，
 example
 
 eager mode quantization:
-1、Post Training Dynamic Quantization 
-2、Post Training Static Quantization (PTQ)
+1. Post Training Dynamic Quantization 
+2. Post Training Static Quantization (PTQ)
    steps:
-   1、modify fload model, add QuantStub(), DeQuantStub(), and use nn.quantized.FloatFunctional() replace some float Function.
-   2、fuse_model() and model.eval()
-   3、qconfig
-   4、prepare(myModel, inplace=True)
-   5、calibration
-   6、convert(myModel, inplace=True)
-   7、evaluate accuracy
+   1. modify fload model, add QuantStub(), DeQuantStub(), and use nn.quantized.FloatFunctional() replace some float Function.
+   2. fuse_model() and model.eval()
+   3. qconfig
+   4. prepare(myModel, inplace=True)
+   5. calibration
+   6. convert(myModel, inplace=True)
+   7. evaluate accuracy
    note: per_tensor vs per_channel qconfig,   per_channel config can have better accuracy in cnn example
 
-3、Quantization Aware Training for Static Quantization  (QAT)
+3. Quantization Aware Training for Static Quantization  (QAT)
    steps:
-   1、modify fload model, add QuantStub(), DeQuantStub(), and use nn.quantized.FloatFunctional() replace some float Function.
-   2、fuse_model() and model.training()
-   3、qconfig
-   4、prepare(myModel, inplace=True)
-   5、training_loop
-   6、convert(myModel, inplace=True)
-   7、evaluate accuracy
+   1. modify fload model, add QuantStub(), DeQuantStub(), and use nn.quantized.FloatFunctional() replace some float Function.
+   2. fuse_model() and model.training()
+   3. qconfig
+   4. prepare(myModel, inplace=True)
+   5. training_loop
+   6. convert(myModel, inplace=True)
+   7. evaluate accuracy
 
 fx mode quantization:
-1、Post Training Dynamic Quantization
-2、Post Training Static Quantization (PTQ_fx)
+1. Post Training Dynamic Quantization
+2. Post Training Static Quantization (PTQ_fx)
    steps:
-   1、config and model.eval()  
-   2、prepare_fx
-   3、calibration
-   4、convert_fx
-   5、evaluate
+   1. config and model.eval()  
+   2. prepare_fx
+   3. calibration
+   4. convert_fx
+   5. evaluate
    note: per_tensor vs per_channel qconfig,   per_channel config can have better accuracy in cnn example
    
-3、Quantization Aware Training for Static Quantization (QAT_fx)
+3. Quantization Aware Training for Static Quantization (QAT_fx)
     steps:
-   1、config and model.eval()  
-   2、prepare_qat_fx
-   3、training_loop
-   4、convert_fx
-   5、evaluate
+   1. config and model.eval()  
+   2. prepare_qat_fx
+   3. training_loop
+   4. convert_fx
+   5. evaluate
 
 
