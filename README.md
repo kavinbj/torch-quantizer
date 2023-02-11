@@ -1,7 +1,7 @@
 <!--
  * @Author: kavinbj
  * @Date: 2022-11-24 13:25:32
- * @LastEditTime: 2023-02-11 12:13:40
+ * @LastEditTime: 2023-02-11 12:44:17
  * @FilePath: README.md
  * @Description: 
  * 
@@ -30,4 +30,46 @@ PyTorch 支持多种量化深度学习模型的方法。在大多数情况下，
 在较低级别，PyTorch 提供了一种表示量化张量并对其执行运算的方法。它们可用于直接构建以较低精度执行全部或部分计算的模型。提供了更高级别的 API，其中包含将 FP32 模型转换为较低精度且精度损失最小的典型工作流程。
 
 
-测试中sdfsadfs
+example
+
+eager mode quantization:
+1、Post Training Dynamic Quantization 
+2、Post Training Static Quantization (PTQ)
+   steps:
+   1、modify fload model, add QuantStub(), DeQuantStub(), and use nn.quantized.FloatFunctional() replace some float Function.
+   2、fuse_model() and model.eval()
+   3、qconfig
+   4、prepare(myModel, inplace=True)
+   5、calibration
+   6、convert(myModel, inplace=True)
+   7、evaluate accuracy
+   note: per_tensor vs per_channel qconfig,   per_channel config can have better accuracy in cnn example
+
+3、Quantization Aware Training for Static Quantization  (QAT)
+   steps:
+   1、modify fload model, add QuantStub(), DeQuantStub(), and use nn.quantized.FloatFunctional() replace some float Function.
+   2、fuse_model() and model.training()
+   3、qconfig
+   4、prepare(myModel, inplace=True)
+   5、training_loop
+   6、convert(myModel, inplace=True)
+   7、evaluate accuracy
+
+fx mode quantization:
+1、Post Training Dynamic Quantization
+2、Post Training Static Quantization (PTQ_fx)
+   steps:
+   1、config and model.eval()  
+   2、prepare_fx
+   3、calibration
+   4、convert_fx
+   5、evaluate
+   note: per_tensor vs per_channel qconfig,   per_channel config can have better accuracy in cnn example
+   
+3、Quantization Aware Training for Static Quantization (QAT_fx)
+    steps:
+   1、config and model.eval()  
+   2、prepare_qat_fx
+   3、training_loop
+   4、convert_fx
+   5、evaluate
