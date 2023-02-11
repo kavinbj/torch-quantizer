@@ -1,7 +1,7 @@
 <!--
  * @Author: kavinbj
  * @Date: 2022-11-24 13:25:32
- * @LastEditTime: 2023-02-11 12:48:59
+ * @LastEditTime: 2023-02-11 12:50:15
  * @FilePath: README.md
  * @Description: 
  * 
@@ -32,10 +32,10 @@ PyTorch 支持多种量化深度学习模型的方法。在大多数情况下，
 
 example
 
-eager mode quantization:
+- eager mode quantization:
 1. Post Training Dynamic Quantization 
 2. Post Training Static Quantization (PTQ)
-   steps:
+   - steps:
    1. modify fload model, add QuantStub(), DeQuantStub(), and use nn.quantized.FloatFunctional() replace some float Function.
    2. fuse_model() and model.eval()
    3. qconfig
@@ -46,7 +46,7 @@ eager mode quantization:
    note: per_tensor vs per_channel qconfig,   per_channel config can have better accuracy in cnn example
 
 3. Quantization Aware Training for Static Quantization  (QAT)
-   steps:
+   - steps:
    1. modify fload model, add QuantStub(), DeQuantStub(), and use nn.quantized.FloatFunctional() replace some float Function.
    2. fuse_model() and model.training()
    3. qconfig
@@ -55,10 +55,10 @@ eager mode quantization:
    6. convert(myModel, inplace=True)
    7. evaluate accuracy
 
-fx mode quantization:
+- fx mode quantization:
 1. Post Training Dynamic Quantization
 2. Post Training Static Quantization (PTQ_fx)
-   steps:
+   - steps:
    1. config and model.eval()  
    2. prepare_fx
    3. calibration
@@ -67,7 +67,7 @@ fx mode quantization:
    note: per_tensor vs per_channel qconfig,   per_channel config can have better accuracy in cnn example
    
 3. Quantization Aware Training for Static Quantization (QAT_fx)
-    steps:
+   - steps:
    1. config and model.eval()  
    2. prepare_qat_fx
    3. training_loop
