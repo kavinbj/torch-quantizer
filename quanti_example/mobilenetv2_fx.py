@@ -1,11 +1,11 @@
 '''
 Author: error: git config user.name & please set dead value or install git
-Date: 2023-02-04 21:45:25
-LastEditTime: 2023-02-05 18:21:01
+Date: 2022-12-04 21:45:25
+LastEditTime: 2022-12-11 12:17:34
 FilePath: mobilenetv2_fx.py
 Description: 
 
-Copyright (c) 2023 by ${git_name}, All Rights Reserved. 
+Copyright (c) 2022 by ${git_name}, All Rights Reserved. 
 '''
 # from torchvision.models.quantization import mobilenet_v2
 from torchvision.models import MobileNetV2, MobileNet_V2_Weights, mobilenet_v2
